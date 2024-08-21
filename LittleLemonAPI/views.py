@@ -19,6 +19,7 @@ class MenuItemViewSet(viewsets.ModelViewSet):
     queryset = MenuItem.objects.all()
     serializer_class = MenuItemSerializer
     ordering_fields = ['price', 'title']
+    search_fields = ['title', 'category__title']
     
 class CartViewSet(viewsets.ModelViewSet):
     queryset = Cart.objects.all()
