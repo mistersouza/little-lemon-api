@@ -21,4 +21,11 @@ class Cart(models.Model):
     
     class Meta:
         unique_together = ('user', 'menuitem')
+        
+class Order(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    delivery_crew = models.ForeignKey(User, on_delete=models.SET_NULL, related_name='delivery_crew', null=True)
+    status = models.BooleanField(db_index=True, default=False)
+    total_price = models.DecimalField(max_digits=6, decimal_places=2)
+    created_at = models.DateField(db_index=True)
     
