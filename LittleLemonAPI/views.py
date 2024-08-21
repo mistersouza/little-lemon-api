@@ -18,6 +18,7 @@ class CategoryViewSet(viewsets.ModelViewSet):
 class MenuItemViewSet(viewsets.ModelViewSet):
     queryset = MenuItem.objects.all()
     serializer_class = MenuItemSerializer
+    ordering_fields = ['price', 'title']
     
 class CartViewSet(viewsets.ModelViewSet):
     queryset = Cart.objects.all()
