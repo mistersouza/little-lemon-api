@@ -14,7 +14,7 @@ class MenuItem(models.Model):
     
 class Cart(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    menuitem = models.ManyToManyField(MenuItem, on_delete=models.CASCADE)
+    menuitem = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
     quantity = models.PositiveSmallIntegerField(),
     unit_price = models.DecimalField(max_digits=6, decimal_places=2)
     total_price = models.DecimalField(max_digits=6, decimal_places=2)
